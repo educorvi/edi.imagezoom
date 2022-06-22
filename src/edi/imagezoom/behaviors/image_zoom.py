@@ -9,35 +9,22 @@ from zope.component import adapter
 from zope.interface import Interface
 from zope.interface import implementer
 from zope.interface import provider
+from zope.interface import alsoProvides
+from plone.autoform.interfaces import IFormFieldProvider
 
 
-class IImageZoomMarker(Interface):
-    pass
+class IImageZoomMarker(model.Schema):
 
-@provider(IFormFieldProvider)
-class IImageZoom(model.Schema):
-    """
-    """
+    model.fieldset(
+            'settings',
+            label=_(u'Einstellungen'),
+            fields=('zoommarker',),
+        )
 
-    project = schema.TextLine(
-        title=_(u'Project'),
-        description=_(u'Give in a project name'),
+    zoommarker = schema.Bool(
+        title=u"Bilder vergrößern aktivieren",
+        default=True,
         required=False,
-    )
+        )
 
-
-@implementer(IImageZoom)
-@adapter(IImageZoomMarker)
-class ImageZoom(object):
-    def __init__(self, context):
-        self.context = context
-
-    @property
-    def project(self):
-        if hasattr(self.context, 'project'):
-            return self.context.project
-        return None
-
-    @project.setter
-    def project(self, value):
-        self.context.project = value
+alsoProvides(IImageZoomMarker,IFormFieldProvider)    

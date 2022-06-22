@@ -8,6 +8,8 @@ class ImagezoomScriptViewlet(ViewletBase):
 
     def images(self):
         images = []
+        if not self.zoom():
+            return images
         htmltext = ''
         if self.context.portal_type == 'Skill':
             if self.context.bachelor:
@@ -31,6 +33,12 @@ class ImagezoomScriptViewlet(ViewletBase):
             entry['src'] = url
             images.append(entry)
         return images
+
+    def zoom(self):
+        zoommarker = False
+        if hasattr(self.context, 'zoommarker'):
+            zoommarker = self.context.zoommarker
+        return zoommarker
 
     def render(self):
         return super(ImagezoomScriptViewlet, self).render()

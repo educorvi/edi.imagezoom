@@ -10,13 +10,9 @@
     <!-- -*- extra stuff goes here -*- -->
 
     <plone:behavior
-        name="edi.imagezoom.image_zoom"
-        title="ImageZoom"
-        description="This behavior provides..."
-        provides=".image_zoom.IImageZoom"
-        factory=".image_zoom.ImageZoom"
-        marker=".image_zoom.IImageZoomMarker"
+        title="ImageZoom für Haupttexte"
+        description="Erlaubt die automatische Vergrößerung von Bildern im Haupttext."
+        provides=".image_zoom.IImageZoomMarker"
         />
-
 
 </configure>
