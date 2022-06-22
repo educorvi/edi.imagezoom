@@ -18,4 +18,8 @@
       directory="static"
       />
 
+  <browser:resourceDirectory
+      name="edi.imagezoom"
+      directory="static" />
+
 </configure>

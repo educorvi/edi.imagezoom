@@ -8,11 +8,10 @@
 
   <browser:viewlet
      name="imagezoom-script-viewlet"
-     for="plone.app.contenttypes.interfaces.IDocument"
-     manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
-     layer="edi.imagezoom.interfaces.IEdiImagezoomLayer"
+     for="*"
+     manager="plone.app.layout.viewlets.interfaces.IBelowContent"
      class=".imagezoom_script_viewlet.ImagezoomScriptViewlet"
-     template="y.pt"
+     template="imagezoom-script-viewlet.pt"
      permission="zope2.View"
      />
 

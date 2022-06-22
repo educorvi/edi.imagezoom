@@ -1,3 +1,55 @@
-<div class="days_to_conf">
-    ${view/message}
+<tal:script tal:define="navroot context/@@plone_portal_state/navigation_root_url">
+
+<script tal:attributes="src string:${navroot}/++resource++edi.imagezoom/js-image-zoom.js"></script>
+
+<script>
+var options1 = {
+    width: 400,
+    zoomWidth: 500,
+    offset: {vertical: 0, horizontal: 10}
+};
+
+// If the width and height of the image are not known or to adjust the image to the container of it
+
+var options2 = {
+    fillContainer: true,
+    zoomWidth: 200,
+    offset: {vertical: 0, horizontal: 10}
+};
+
+$(".edi-zoom-image").each(function() {
+  new ImageZoom(this, options2);
+});
+
+// new ImageZoom(document.getElementById("img-container"), options2);
+
+$("img.image-inline").each(function() {
+    var target = this.getAttribute('data-val');
+    var front = '<br/><a href="#" class="float-right" data-toggle="modal" data-target="#edi';
+    var trail = '"><i class="bi bi-binoculars"></i> <span class="small">vergrößern</span></a>';
+    var button = front + target + trail;
+    $(button).insertAfter(this)
+});
+
+
+</script>
+</tal:script>
+
+
+
+<div tal:repeat="image view/images" class="modal fade" tabindex="-1" aria-hidden="true"
+  tal:attributes="id image/id; aria-labelledby string:label${image/id}">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+              <h5 class="modal-title" tal:attributes="id string:${image/id}" tal:content="image/title"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Schließen">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img class="img-fluid" tal:attributes="src image/src; title image/title; alt image/description">
+      </div>
+    </div>
+  </div>
 </div>
