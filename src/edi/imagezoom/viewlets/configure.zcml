@@ -1,0 +1,20 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="edi.imagezoom">
+
+  -*- extra stuff goes here -*-
+
+  <browser:viewlet
+     name="imagezoom-script-viewlet"
+     for="plone.app.contenttypes.interfaces.IDocument"
+     manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
+     layer="edi.imagezoom.interfaces.IEdiImagezoomLayer"
+     class=".imagezoom_script_viewlet.ImagezoomScriptViewlet"
+     template="y.pt"
+     permission="zope2.View"
+     />
+
+
+</configure>
