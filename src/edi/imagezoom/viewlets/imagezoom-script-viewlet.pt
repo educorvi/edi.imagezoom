@@ -35,10 +35,17 @@ $(".edi-zoom-image").each(function() {
     $(button).insertAfter(this);
   });
 
+  $("figure.image-richtext > img").each(function() {
+    var target = this.getAttribute('data-val');
+    var front = '<br/><a href="#" class="float-right" data-toggle="modal" data-target="#edi';
+    var trail = '"><i class="bi bi-binoculars"></i> <span class="small">vergrößern</span></a>';
+    var button = front + target + trail;
+    $(button).insertAfter(this);
+  });
+
 </script>
 
 </tal:script>
-
 
 
 <div tal:condition="view/zoom" tal:repeat="image view/images" class="modal fade" tabindex="-1" aria-hidden="true"
