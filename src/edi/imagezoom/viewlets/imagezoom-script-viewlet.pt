@@ -25,6 +25,8 @@ $(".edi-zoom-image").each(function() {
 
 </script>
 
+<script tal:condition="view/zoom" tal:content="structure view/manipulate"/>
+
 <script tal:condition="view/zoom">
 
   $("img.image-richtext").each(function() {
