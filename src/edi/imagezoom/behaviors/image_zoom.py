@@ -23,7 +23,7 @@ class IImageZoomMarker(model.Schema):
 
     zoommarker = schema.Bool(
         title=u"Bilder vergrößern aktivieren",
-        default=True,
+        default=False,
         required=False,
         )
 
