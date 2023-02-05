@@ -6,33 +6,19 @@
 edi.imagezoom
 =============
 
-Tell me what your product does
+Plone Add-On for Zooming Images with original size within HTML-Text. They will get a Zoom-Link in View. The Zoom-Link opens a model with
+larger copy of image.
 
 Features
 --------
 
-- Can be bullet points
-
-
-Examples
---------
-
-This add-on can be seen in action at the following sites:
-- Is there a page on the internet where everybody can see the features?
-
-
-Documentation
--------------
-
-Full documentation for end users can be found in the "docs" folder, and is also available online at http://docs.plone.org/foo/bar
-
+- Behavior to add image zooming feature to plone-content-types
+- add a zooming-link for every image in single-view
 
 Translations
 ------------
 
-This product has been translated into
-
-- Klingon (thanks, K'Plai)
+This product is available in German only
 
 
 Installation
@@ -54,16 +40,13 @@ and then running ``bin/buildout``
 Contribute
 ----------
 
-- Issue Tracker: https://github.com/collective/edi.imagezoom/issues
-- Source Code: https://github.com/collective/edi.imagezoom
-- Documentation: https://docs.plone.org/foo/bar
-
+- Issue Tracker: https://github.com/educorvi/edi.imagezoom/issues
+- Source Code: https://github.com/educorvi/edi.imagezoom
 
 Support
 -------
 
-If you are having issues, please let us know.
-We have a mailing list located at: project@example.com
+lars.walther@educorvi.de
 
 
 License
