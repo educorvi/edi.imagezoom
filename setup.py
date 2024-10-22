@@ -14,7 +14,7 @@ long_description = '\n\n'.join([
 
 setup(
     name='edi.imagezoom',
-    version='1.0a2.dev0',
+    version='1.0',
     description="Integrates the js-image-zoom library in Plone",
     long_description=long_description,
     # Get more from https://pypi.org/classifiers/
@@ -46,7 +46,7 @@ setup(
     package_dir={'': 'src'},
     include_package_data=True,
     zip_safe=False,
-    python_requires="==2.7, >=3.6",
+    python_requires=">=3.8",
     install_requires=[
         'setuptools',
         # -*- Extra requirements: -*-
