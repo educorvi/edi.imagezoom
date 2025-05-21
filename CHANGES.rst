@@ -2,10 +2,10 @@ Changelog
 =========
 
 
-1.1 (unreleased)
+1.1 (2025-05-21)
 ----------------
 
-- Nothing changed yet.
+- Reparatur der Bildvergrößerung, die ID des Bildes wird jetzt wahlweise aus dem dem data-val Attribut oder der URL gelesen (lwalther)
 
 
 1.0 (2024-10-22)
