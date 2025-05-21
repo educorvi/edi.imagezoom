@@ -1,8 +1,18 @@
 # -*- coding: utf-8 -*-
 from bs4 import BeautifulSoup
+from urllib.parse import urlparse
 from plone.app.layout.viewlets import ViewletBase
 
 scaling = ['large', 'preview', 'mini', 'thumb', 'tile', 'icon', 'listing']
+
+def extract_image_id(url):
+    # Parse the URL and split the path
+    path_parts = urlparse(url).path.strip("/").split("/")
+    # Return the last part before the file extension
+    if path_parts:
+        last_part = path_parts[-1]
+        return last_part.split(".")[0]  # Remove extension if present
+    return None
 
 class ImagezoomScriptViewlet(ViewletBase):
 
@@ -23,7 +33,10 @@ class ImagezoomScriptViewlet(ViewletBase):
             entry = dict()
             entry['title'] = i.get('title')
             entry['description'] = i.get('alt')
-            entry['id'] = "edi" + i.get('data-val')
+            if i.get('data-val'):
+                entry['id'] = "edi" + i.get('data-val')
+            else:
+                entry['id'] = "edi" + extract_image_id(i.get('src'))
             src = i.get('src')
             spliturl = src.split('/')
             if spliturl[-1] in scaling:
@@ -31,6 +44,7 @@ class ImagezoomScriptViewlet(ViewletBase):
             else:
                 url = src
             entry['src'] = url
+            entry['orig'] = url.replace('@@images', '@@download/image')
             images.append(entry)
         return images
 

@@ -28,20 +28,52 @@ $(".edi-zoom-image").each(function() {
 <script tal:condition="view/zoom">
 
   $("img.image-richtext").each(function() {
-    var target = this.getAttribute('data-val');
-    var front = '<br/><a href="#" class="float-right" data-toggle="modal" data-target="#edi';
-    var trail = '"><i class="bi bi-binoculars"></i> <span class="small">vergrößern</span></a>';
-    var button = front + target + trail;
-    $(button).insertAfter(this);
-  });
+      let target = $(this).data("val");
+      if (!target) {
+          const srcurl = $(this).attr("src");
+
+      if (srcurl) {
+          const pathParts = srcurl.split("/").filter(Boolean);
+          const lastPart = pathParts[pathParts.length - 1];
+
+          if (lastPart && lastPart.includes(".")) {
+              target = lastPart.split(".")[0];
+          } else {
+              target = lastPart;
+          }
+        }
+      }
+      console.log("Extracted target:", target);
+
+      let front = '<br/><a href="#" class="float-right" data-toggle="modal" data-target="#edi';
+      let trail = '"><i class="bi bi-binoculars"></i> <span class="small">vergrößern</span></a>';
+      let button = front + target + trail;
+      $(button).insertAfter(this);
+      });
 
   $("figure.image-richtext > img").each(function() {
-    var target = this.getAttribute('data-val');
-    var front = '<br/><a href="#" class="float-right" data-toggle="modal" data-target="#edi';
-    var trail = '"><i class="bi bi-binoculars"></i> <span class="small">vergrößern</span></a>';
-    var button = front + target + trail;
-    $(button).insertAfter(this);
-  });
+      let target = $(this).data("val");
+      if (!target) {
+          const srcurl = $(this).attr("src");
+
+      if (srcurl) {
+          const pathParts = srcurl.split("/").filter(Boolean);
+          const lastPart = pathParts[pathParts.length - 1];
+
+          if (lastPart && lastPart.includes(".")) {
+              target = lastPart.split(".")[0];
+          } else {
+              target = lastPart;
+          }
+        }
+      }
+      console.log("Extracted target:", target);
+
+      let front = '<br/><a href="#" class="float-right" data-toggle="modal" data-target="#edi';
+      let trail = '"><i class="bi bi-binoculars"></i> <span class="small">vergrößern</span></a>';
+      let button = front + target + trail;
+      $(button).insertAfter(this);
+      });
 
 </script>
 
@@ -59,7 +91,7 @@ $(".edi-zoom-image").each(function() {
         </button>
       </div>
       <div class="modal-body">
-        <img class="img-fluid" tal:attributes="src image/src; title image/title; alt image/description">
+        <img class="img-fluid" tal:attributes="src image/orig; title image/title; alt image/description">
       </div>
     </div>
   </div>
