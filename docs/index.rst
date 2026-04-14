@@ -1,5 +1,0 @@
-=============
-edi.imagezoom
-=============
-
-User documentation

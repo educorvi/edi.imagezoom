@@ -45,7 +45,7 @@ $(".edi-zoom-image").each(function() {
       }
       console.log("Extracted target:", target);
 
-      let front = '<br/><a href="#" class="float-right" data-toggle="modal" data-target="#edi';
+      let front = '<br/><a href="#" class="float-right" data-bs-toggle="modal" data-bs-target="#edi';
       let trail = '"><i class="bi bi-binoculars"></i> <span class="small">vergrößern</span></a>';
       let button = front + target + trail;
       $(button).insertAfter(this);
@@ -69,7 +69,7 @@ $(".edi-zoom-image").each(function() {
       }
       console.log("Extracted target:", target);
 
-      let front = '<br/><a href="#" class="float-right" data-toggle="modal" data-target="#edi';
+      let front = '<br/><a href="#" class="float-right" data-bs-toggle="modal" data-bs-target="#edi';
       let trail = '"><i class="bi bi-binoculars"></i> <span class="small">vergrößern</span></a>';
       let button = front + target + trail;
       $(button).insertAfter(this);
@@ -86,7 +86,7 @@ $(".edi-zoom-image").each(function() {
     <div class="modal-content">
       <div class="modal-header">
               <h5 class="modal-title" tal:attributes="id string:${image/id}" tal:content="image/title"></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Schließen">
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Schließen">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>

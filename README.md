@@ -95,8 +95,8 @@ pip install edi.imagezoom
 
 ### Behavior: `IImageZoomMarker`
 
-**ZCML name:** `edi.imagezoom.behaviors.image_zoom.IImageZoomMarker`  
-**Title (German):** *ImageZoom für Haupttexte*  
+**ZCML name:** `edi.imagezoom.behaviors.image_zoom.IImageZoomMarker`
+**Title (German):** *ImageZoom für Haupttexte*
 **Description (German):** *Erlaubt die automatische Vergrößerung von Bildern im Haupttext.*
 
 This Dexterity behavior adds a single boolean field to the content type's **Settings** fieldset:
@@ -111,10 +111,10 @@ When `zoommarker` is `True` on a content item, the viewlet will inject zoom link
 
 ### Viewlet: `imagezoom-script-viewlet`
 
-**Name:** `imagezoom-script-viewlet`  
-**Manager:** `plone.app.layout.viewlets.interfaces.IBelowContent`  
-**Registered for:** all content (`for="*"`)  
-**Permission:** `zope2.View`  
+**Name:** `imagezoom-script-viewlet`
+**Manager:** `plone.app.layout.viewlets.interfaces.IBelowContent`
+**Registered for:** all content (`for="*"`)
+**Permission:** `zope2.View`
 **Template:** `imagezoom-script-viewlet.pt`
 
 The viewlet renders below the main content area and does the following:
