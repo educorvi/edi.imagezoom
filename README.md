@@ -47,7 +47,7 @@ A Plone add-on that integrates the [js-image-zoom](https://github.com/malaman/js
 | `Plone` ≥ 5.2 | Tested Plone version |
 | `plone.api` ≥ 1.8.4 | Plone API utilities |
 | `plone.app.dexterity` | Dexterity content-type framework (behavior registration) |
-| `plone.restapi` | Required by the package (declared dependency) |
+| `plone.restapi` | Declared as a dependency; ensures REST API support is available for Plone installations that use it |
 | `z3c.jbot` | Template override mechanism (overrides directory) |
 | `beautifulsoup4` (`bs4`) | Parses the rich-text HTML to find `<img>` tags |
 | Python ≥ 3.8 | Minimum Python version |
@@ -56,7 +56,7 @@ A Plone add-on that integrates the [js-image-zoom](https://github.com/malaman/js
 
 | Dependency | How it is provided |
 |---|---|
-| **jQuery** | Must be present in the Plone theme (standard in Plone 5 themes, e.g. Barceloneta or Bootstrap-based themes) |
+| **jQuery** | Must be present in the Plone theme (standard in most Plone 5 Bootstrap-based themes) |
 | **Bootstrap 4/5** (modals + utility classes) | Must be present in the active Plone theme. The viewlet uses `data-toggle="modal"`, `data-target`, `modal-xl`, `modal-dialog`, `img-fluid`, `float-right`, etc. |
 | **Bootstrap Icons** (`bi bi-binoculars`) | Must be included in the theme to display the binoculars icon on the zoom link |
 | **js-image-zoom** | Bundled as a static resource at `++resource++edi.imagezoom/js-image-zoom.js` — no extra installation needed |
@@ -213,9 +213,8 @@ Content item (with zoommarker=True)
 The viewlet inspects:
 
 - `self.context.text` — the standard `IRichText` field available on Plone's default *Document* (`plone.app.contenttypes`) and most custom Dexterity types.
-- `self.context.bachelor` — a custom field specific to a **Skill** content type (if present in your installation).
 
-Any Dexterity content type that has a `text` rich-text field and has the `IImageZoomMarker` behavior assigned will work out of the box.
+Any Dexterity content type that has a `text` rich-text field and has the `IImageZoomMarker` behavior assigned will work out of the box. The viewlet can be extended to support additional rich-text fields on custom content types.
 
 ---
 
