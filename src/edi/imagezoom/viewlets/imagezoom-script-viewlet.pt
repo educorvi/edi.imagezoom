@@ -1,45 +1,36 @@
 <tal:script tal:define="navroot context/@@plone_portal_state/navigation_root_url">
 
-<script tal:attributes="src string:${navroot}/++resource++edi.imagezoom/js-image-zoom.js"></script>
+  <script tal:attributes="src string:${navroot}/++resource++edi.imagezoom/js-image-zoom.js"></script>
 
-<script>
-var options1 = {
-    width: 400,
-    zoomWidth: 500,
-    offset: {vertical: 0, horizontal: 10}
-};
+  <script>
+    // If the width and height of the image are not known or to adjust the image to the container of it
+    const options = {
+      fillContainer: true,
+      zoomWidth: 200,
+      offset: {vertical: 0, horizontal: 10}
+    };
 
-// If the width and height of the image are not known or to adjust the image to the container of it
+    $(".edi-zoom-image").each(function () {
+      new ImageZoom(this, options);
+    });
 
-var options2 = {
-    fillContainer: true,
-    zoomWidth: 200,
-    offset: {vertical: 0, horizontal: 10}
-};
+  </script>
 
-$(".edi-zoom-image").each(function() {
-  new ImageZoom(this, options2);
-});
+  <script tal:condition="view/zoom">
 
-// new ImageZoom(document.getElementById("img-container"), options2);
-
-</script>
-
-<script tal:condition="view/zoom">
-
-  $("img.image-richtext").each(function() {
+    $("img.image-richtext").each(function () {
       let target = $(this).data("val");
       if (!target) {
-          const srcurl = $(this).attr("src");
+        const srcurl = $(this).attr("src");
 
-      if (srcurl) {
+        if (srcurl) {
           const pathParts = srcurl.split("/").filter(Boolean);
           const lastPart = pathParts[pathParts.length - 1];
 
           if (lastPart && lastPart.includes(".")) {
-              target = lastPart.split(".")[0];
+            target = lastPart.split(".")[0];
           } else {
-              target = lastPart;
+            target = lastPart;
           }
         }
       }
@@ -49,21 +40,21 @@ $(".edi-zoom-image").each(function() {
       let trail = '"><i class="bi bi-binoculars"></i> <span class="small">vergrößern</span></a>';
       let button = front + target + trail;
       $(button).insertAfter(this);
-      });
+    });
 
-  $("figure.image-richtext > img").each(function() {
+    $("figure.image-richtext > img").each(function () {
       let target = $(this).data("val");
       if (!target) {
-          const srcurl = $(this).attr("src");
+        const srcurl = $(this).attr("src");
 
-      if (srcurl) {
+        if (srcurl) {
           const pathParts = srcurl.split("/").filter(Boolean);
           const lastPart = pathParts[pathParts.length - 1];
 
           if (lastPart && lastPart.includes(".")) {
-              target = lastPart.split(".")[0];
+            target = lastPart.split(".")[0];
           } else {
-              target = lastPart;
+            target = lastPart;
           }
         }
       }
@@ -73,22 +64,20 @@ $(".edi-zoom-image").each(function() {
       let trail = '"><i class="bi bi-binoculars"></i> <span class="small">vergrößern</span></a>';
       let button = front + target + trail;
       $(button).insertAfter(this);
-      });
+    });
 
-</script>
+  </script>
 
 </tal:script>
 
 
 <div tal:condition="view/zoom" tal:repeat="image view/images" class="modal fade" tabindex="-1" aria-hidden="true"
-  tal:attributes="id image/id; aria-labelledby string:label${image/id}">
-  <div class="modal-dialog modal-xl">
+     tal:attributes="id image/id; aria-labelledby string:label${image/id}">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-              <h5 class="modal-title" tal:attributes="id string:${image/id}" tal:content="image/title"></h5>
-        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Schließen">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <h5 class="modal-title" tal:attributes="id string:${image/id}" tal:content="image/title"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <img class="img-fluid" tal:attributes="src image/orig; title image/title; alt image/description">
