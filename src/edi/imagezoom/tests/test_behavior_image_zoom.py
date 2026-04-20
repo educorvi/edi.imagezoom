@@ -9,16 +9,15 @@ import unittest
 
 
 class ImageZoomIntegrationTest(unittest.TestCase):
-
     layer = EDI_IMAGEZOOM_INTEGRATION_TESTING
 
     def setUp(self):
         """Custom shared utility setup for tests."""
-        self.portal = self.layer['portal']
-        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.portal = self.layer["portal"]
+        setRoles(self.portal, TEST_USER_ID, ["Manager"])
 
     def test_behavior_image_zoom(self):
-        behavior = getUtility(IBehavior, 'edi.imagezoom.image_zoom')
+        behavior = getUtility(IBehavior, "edi.imagezoom.image_zoom")
         self.assertEqual(
             behavior.marker,
             IImageZoomMarker,

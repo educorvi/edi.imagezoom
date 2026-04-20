@@ -2,18 +2,19 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:plone="http://namespaces.plone.org/plone"
-    i18n_domain="edi.imagezoom">
+    i18n_domain="edi.imagezoom"
+    >
 
   -*- extra stuff goes here -*-
 
   <browser:viewlet
-     name="imagezoom-script-viewlet"
-     for="*"
-     manager="plone.app.layout.viewlets.interfaces.IBelowContent"
-     class=".imagezoom_script_viewlet.ImagezoomScriptViewlet"
-     template="imagezoom-script-viewlet.pt"
-     permission="zope2.View"
-     />
+      name="imagezoom-script-viewlet"
+      for="*"
+      manager="plone.app.layout.viewlets.interfaces.IBelowContent"
+      class=".imagezoom_script_viewlet.ImagezoomScriptViewlet"
+      template="imagezoom-script-viewlet.pt"
+      permission="zope2.View"
+      />
 
 
 </configure>

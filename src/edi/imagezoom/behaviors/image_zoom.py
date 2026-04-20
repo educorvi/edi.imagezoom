@@ -1,4 +1,3 @@
-
 from edi.imagezoom import _
 from plone import schema
 from plone.autoform.interfaces import IFormFieldProvider
@@ -7,17 +6,17 @@ from zope.interface import alsoProvides
 
 
 class IImageZoomMarker(model.Schema):
-
     model.fieldset(
-            'settings',
-            label=_('Einstellungen'),
-            fields=('zoommarker',),
-        )
+        "settings",
+        label=_("Einstellungen"),
+        fields=("zoommarker",),
+    )
 
     zoommarker = schema.Bool(
         title="Bilder vergrößern aktivieren",
         default=False,
         required=False,
-        )
+    )
 
-alsoProvides(IImageZoomMarker,IFormFieldProvider)
+
+alsoProvides(IImageZoomMarker, IFormFieldProvider)

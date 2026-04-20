@@ -1,18 +1,22 @@
 <configure
-  xmlns="http://namespaces.zope.org/zope"
-  xmlns:browser="http://namespaces.zope.org/browser"
-  xmlns:plone="http://namespaces.plone.org/plone"
-  xmlns:zcml="http://namespaces.zope.org/zcml"
-  i18n_domain="plone">
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    i18n_domain="plone"
+    >
 
-    <include package="plone.behavior" file="meta.zcml"/>
+  <include
+      package="plone.behavior"
+      file="meta.zcml"
+      />
 
-    <!-- -*- extra stuff goes here -*- -->
+  <!-- -*- extra stuff goes here -*- -->
 
-    <plone:behavior
-        title="ImageZoom für Haupttexte"
-        description="Erlaubt die automatische Vergrößerung von Bildern im Haupttext."
-        provides=".image_zoom.IImageZoomMarker"
-        />
+  <plone:behavior
+      title="ImageZoom für Haupttexte"
+      description="Erlaubt die automatische Vergrößerung von Bildern im Haupttext."
+      provides=".image_zoom.IImageZoomMarker"
+      />
 
 </configure>
