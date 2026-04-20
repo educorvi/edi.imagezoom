@@ -1,6 +1,5 @@
-# -*- coding: utf-8 -*-
 from edi.imagezoom.behaviors.image_zoom import IImageZoomMarker
-from edi.imagezoom.testing import EDI_IMAGEZOOM_INTEGRATION_TESTING  # noqa
+from edi.imagezoom.testing import EDI_IMAGEZOOM_INTEGRATION_TESTING
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from plone.behavior.interfaces import IBehavior

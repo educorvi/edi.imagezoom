@@ -152,7 +152,7 @@ lint.ignore = [
     # DoNotAssignLambda
     "E731",
 ]
-
+extend-exclude = ["src/edi/imagezoom/locales/update.py"]
 [tool.ruff.lint.isort]
 case-sensitive = false
 no-sections = true

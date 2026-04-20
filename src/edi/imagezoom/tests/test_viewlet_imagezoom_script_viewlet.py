@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from edi.imagezoom.interfaces import IEdiImagezoomLayer
 from edi.imagezoom.testing import EDI_IMAGEZOOM_FUNCTIONAL_TESTING
 from edi.imagezoom.testing import EDI_IMAGEZOOM_INTEGRATION_TESTING
