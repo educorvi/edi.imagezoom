@@ -13,7 +13,8 @@
 
   <!-- -*- extra stuff goes here -*- -->
 
-  <plone:behavior
+  <plone:
+      name="edi.imagezoom.imagezoom"
       title="ImageZoom für Haupttexte"
       description="Erlaubt die automatische Vergrößerung von Bildern im Haupttext."
       provides=".image_zoom.IImageZoomMarker"
