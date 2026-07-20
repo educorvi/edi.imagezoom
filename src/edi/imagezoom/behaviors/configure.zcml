@@ -11,9 +11,7 @@
       file="meta.zcml"
       />
 
-  <!-- -*- extra stuff goes here -*- -->
-
-  <plone:
+  <plone:behavior
       name="edi.imagezoom.imagezoom"
       title="ImageZoom für Haupttexte"
       description="Erlaubt die automatische Vergrößerung von Bildern im Haupttext."
